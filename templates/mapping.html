@@ -1,14 +1,15 @@
 {% extends "layout.html" %}
 {% block content %}
-    <script type="text/javascript" src="{{ url_for('static', filename='js/nipple.min.js')}}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/mapping.js')}}"></script>
-    <nav class="navbar navbar-expand-lg bg-light navbar-light static-top">
+<!-- <script type="text/javascript" src="{{ url_for('static', filename='js/nipple.min.js')}}"></script> -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/mapping.js')}}"></script>
+<nav class="navbar navbar-expand-lg bg-light navbar-light static-top">
     <div class="container-fluid">
         <!-- Brand -->
-        <a class="navbar-brand " href="#"><img src="{{url_for('static', filename='img/mainLogo.svg')}}" width="60" height="50" alt=""></a>
+        <a class="navbar-brand " href="#"><img src="{{url_for('static', filename='img/mainLogo.svg')}}" width="60"
+                height="50" alt=""></a>
         <!-- Links -->
         <ul class="navbar-nav ml-auto">
-            
+
             <li class="nav-item" id="restart">
                 <a class="nav-link" href="#">
                     <i class="fa fa-repeat center"></i>
@@ -23,7 +24,7 @@
                 <a class="nav-link" href="#">
                     <i class="fa fa-battery-full center"></i>
                 </a>
-      
+
             </li>
         </ul>
     </div>
@@ -33,15 +34,17 @@
         <ul>
             <li>
                 <a href="#">
-                    <div class="zoom-ctrl" id="zoomplus"><i class="fa fa-plus-circle fa-3x"></i><span class="caption">Zoom in</span></div>
+                    <div class="zoom-ctrl" id="zoomplus"><i class="fa fa-plus-circle fa-3x"></i><span
+                            class="caption">Zoom in</span></div>
                 </a>
             </li>
 
             <li>
                 <a href="#">
-                    <div class="zoom-ctrl" id="zoomminus"><i class="fa fa-minus-circle fa-3x"></i><span class="caption">Zoom out</span></div>
+                    <div class="zoom-ctrl" id="zoomminus"><i class="fa fa-minus-circle fa-3x"></i><span
+                            class="caption">Zoom out</span></div>
                 </a>
-            </li>         
+            </li>
         </ul>
     </div>
 </div>
@@ -55,13 +58,14 @@
         </div>
         <div class="settings-wrap"> Settings
             <ul>
-                <li><a href="#"> 
-                    <button type="button" class="btn btn-success mapping-button" id="savemap">Save Map</button> 
+                <li><a href="#">
+                        <button type="button" class="btn btn-success mapping-button" id="savemap">Save Map</button>
                     </a></li>
                 <li><a href="">
-                       <button type="button" class="btn btn-primary mapping-button" data-toggle="modal" data-target="#exampleModal" id="start-nav-button"  >Start Navigation</button>
-            
-                        
+                        <button type="button" class="btn btn-primary mapping-button" data-toggle="modal"
+                            data-target="#exampleModal" id="start-nav-button">Start Navigation</button>
+
+
                     </a></li>
             </ul>
         </div>
@@ -70,29 +74,58 @@
 </nav>
 <div id="nav" class="canvasScreen"></div>
 <!-- <div class="joy-container"> -->
-<div id="zonejoystick" class="joy-stick"></div>
+<div id="buttonCmd" style="bottom: 20px; position: fixed; right: 10px; width: auto;" class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <button id="forward" class="btn btn-primary">Go forward</button>
+            <br><br>
+        </div>
+    </div>
+
+
+    <!-- 2nd row -->
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <button id="turnLeft" class="btn btn-primary">Turn left</button>
+        </div>
+        <div class="col-md-4 text-center">
+            <button id="stop" class="btn btn-danger">Stop</button>
+            <br><br>
+        </div>
+        <div class="col-md-4 text-center">
+            <button id="turnRight" class="btn btn-primary">Turn right</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <button id="backward" class="btn btn-primary">Go backward</button>
+        </div>
+    </div>
+    <!-- 3rd row -->
+
+</div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Choose map</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="list-group" id ="index-list-map">
-                        {% for maps in map %}
-                        <a class="list-group-item list-group-item-action" style="cursor:pointer;">{{maps[1]}}</a>
-                        {% endfor %}
-                    </div>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Choose map</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="list-group" id="index-list-map">
+                    {% for maps in map %}
+                    <a class="list-group-item list-group-item-action" style="cursor:pointer;">{{maps[1]}}</a>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
-<div class="modal-load">
-   
 </div>
-    
-{% endblock content %}
+<div class="modal-load">
 
+</div>
+
+{% endblock content %}

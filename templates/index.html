@@ -2,11 +2,19 @@
 {% block content %}
 <script type="text/javascript" src="{{ url_for('static', filename='js/index.js')}}"></script>
 <div class="bg-image"></div>
-<div class="bg-text">
-    <h2>Choose mode</h2>
-    <button class="button-index glow-button" data-toggle="modal" data-target="#exampleModal">Navigation</button>
+<div class="bg-text container">
+    <div class="row">
+        <h2 class="banner-text">Choose mode</h2>
+    </div>
 
-    <button id="index-map" class="button-index glow-button" style="margin-left: 10%;">Mapping</button>
+    <div class="row" style="height: 38px; width: 390px;">
+        <div class="col-md-6"><button class="button-index glow-button  " data-toggle="modal"
+                data-target="#exampleModal">Navigation</button></div>
+
+        <div class="col-md-6"> <button id="index-map" class="button-index glow-button " >Mapping</button></div>
+       
+    </div>
+
 
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
