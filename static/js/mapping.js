@@ -9,7 +9,7 @@ var control_linear_vel = 0.0;
 var control_angular_vel = 0.0;
 var ROBOT_MAX_LIN_VEL = 0.22;
 var ROBOT_MAX_ANG_VEL = 2.84;
-var ROBOT_LINEAR_VEL_STEP_SIZE = 0.01;
+var ROBOT_LINEAR_VEL_STEP_SIZE = 0.08;
 var ROBOT_ANGULAR_VEL_STEP_SIZE = 0.1;
 function makeSimpleProfile(output, input, slop) {
   if (input > output) output = Math.min(input, output + slop);
@@ -255,7 +255,7 @@ $(document).ready(function () {
     });
 
     manager.on("move", function (event, nipple) {
-      max_linear = 0.2; // m/s
+      max_linear = 0.22; // m/s
       max_angular = 0.8; // rad/s
       max_distance = 75.0; // pixels;
       linear_speed =
