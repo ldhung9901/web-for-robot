@@ -10,7 +10,7 @@ var control_angular_vel = 0.0;
 var ROBOT_MAX_LIN_VEL = 0.22;
 var ROBOT_MAX_ANG_VEL = 2.84;
 var ROBOT_LINEAR_VEL_STEP_SIZE = 0.08;
-var ROBOT_ANGULAR_VEL_STEP_SIZE = 0.1;
+var ROBOT_ANGULAR_VEL_STEP_SIZE = 0.5;
 function makeSimpleProfile(output, input, slop) {
   if (input > output) output = Math.min(input, output + slop);
   else if (input < output) output = Math.max(input, output - slop);
