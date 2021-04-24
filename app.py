@@ -33,7 +33,7 @@ class roslaunch_process():
     @classmethod
     def start_mapping(self):
 
-        self.process_mapping = subprocess.Popen(["roslaunch", "--wait", "robot_slam", "robot_slam.launch"])
+        self.process_mapping = subprocess.Popen(["roslaunch", "--wait", "robot_slam", "robot_slam.launch slam_methods:=gmapping"])
 
     @classmethod
     def stop_mapping(self):
