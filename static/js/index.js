@@ -74,7 +74,7 @@ $(document).ready(function() {
     $("#index-list").click(function(event) {
         document.cookie = event.target.innerHTML;
         $('#exampleModal').modal('hide');
-
+//sddfdf
 
         $.ajax({
 
